@@ -16,7 +16,7 @@ def morse_to_text():
     output_textbox.delete("1.0", tk.END)
     output_textbox.insert(tk.END, text)
 
-def adatbazis_init():
+def database_init():
     conn = sqlite3.connect("forditasok.db")
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS forditasok
@@ -24,7 +24,7 @@ def adatbazis_init():
     conn.commit()
     conn.close()
 
-def mentes_adatbazisba():
+def save_to_database():
     input = input_textbox.get("1.0", tk.END).strip()
     output = output_textbox.get("1.0", tk.END).strip()
     if input and output:
@@ -58,11 +58,11 @@ output_textbox = tk.Text(root, height=5, width=45)
 output_textbox.pack()
 
 # Adatbázis
-adatbazis_button = tk.Button(root, text="Fordítás mentése adatbázisba", command=mentes_adatbazisba)
+adatbazis_button = tk.Button(root, text="Fordítás mentése adatbázisba", command=save_to_database)
 adatbazis_button.pack()
 
 # Adatbázis inicializálása
-adatbazis_init()
+database_init()
 
 # Alkalmazás indítása
 root.mainloop()
