@@ -58,8 +58,8 @@ output_textbox = tk.Text(root, height=5, width=45)
 output_textbox.pack()
 
 # Adatbázis
-adatbazis_button = tk.Button(root, text="Fordítás mentése adatbázisba", command=save_to_database)
-adatbazis_button.pack()
+database_button = tk.Button(root, text="Fordítás mentése adatbázisba", command=save_to_database)
+database_button.pack()
 
 # Adatbázis inicializálása
 database_init()
